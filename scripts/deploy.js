@@ -7,10 +7,10 @@
 const hre = require("hardhat");
 
 async function main() {
-  // const token = await hre.ethers.deployContract("ICO");
+  // const token = await hre.ethers.deployContract("Floppy");
   // await token.waitForDeployment();
-
   // const vault = await hre.ethers.deployContract("Vault");
+
   // await vault.waitForDeployment();
 
   // console.log(`token address ${token.target}`);
@@ -21,9 +21,17 @@ async function main() {
   // await USDT.waitForDeployment();
   // console.log(`USDT address ${USDT.target}`)
 
-  const CrowdSale = await hre.ethers.deployContract("CrowdSale",[1000,100,"0x652C02bE862A244F3BC25eb98B740738f48935cF", "0x87B515F410B44912Bc7625a017d2A2610475FCEA"]);
-  await CrowdSale.waitForDeployment();
-  console.log(`ICO address ${CrowdSale.target}`)
+  // const ICO = await hre.ethers.deployContract("FLPCrowdSale",[1000,100,"0x652C02bE862A244F3BC25eb98B740738f48935cF", "0x87B515F410B44912Bc7625a017d2A2610475FCEA"]);
+  // await ICO.waitForDeployment();
+  // console.log(`ICO address ${ICO.target}`)
+
+  // const hero = await hre.ethers.deployContract("Hero");
+  // await hero.waitForDeployment();
+  // console.log(`hero address ${hero.target}`);
+
+  const marketplace = await hre.ethers.deployContract("HeroMarketplace", ["0x87B515F410B44912Bc7625a017d2A2610475FCEA", "0x716aeE5EE46A7C0B3691DD8c9B099237a3629c7A"]);
+  await marketplace.waitForDeployment();
+  console.log(`heromarket address ${marketplace.target}`);
 
 }
 
