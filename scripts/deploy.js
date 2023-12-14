@@ -29,9 +29,13 @@ async function main() {
   // await hero.waitForDeployment();
   // console.log(`hero address ${hero.target}`);
 
-  const marketplace = await hre.ethers.deployContract("HeroMarketplace", ["0x87B515F410B44912Bc7625a017d2A2610475FCEA", "0x716aeE5EE46A7C0B3691DD8c9B099237a3629c7A"]);
-  await marketplace.waitForDeployment();
-  console.log(`heromarket address ${marketplace.target}`);
+  // const marketplace = await hre.ethers.deployContract("HeroMarketplace", ["0x87B515F410B44912Bc7625a017d2A2610475FCEA", "0xaA9aa5D835aecDc12F53f4b33127fA88332c18AD"]);
+  // await marketplace.waitForDeployment();
+  // console.log(`heromarket address ${marketplace.target}`);
+
+  const auction = await hre.ethers.deployContract("Auction", ["0x87B515F410B44912Bc7625a017d2A2610475FCEA", "0xaA9aa5D835aecDc12F53f4b33127fA88332c18AD"]);
+  await auction.waitForDeployment();
+  console.log(`auction address ${auction.target}`);
 
 }
 

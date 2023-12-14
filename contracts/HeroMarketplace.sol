@@ -1,13 +1,14 @@
 //SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.19;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+// import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 
-contract HeroMarketplace is IERC721Receiver, Ownable{
+contract HeroMarketplace is ERC721Holder, Ownable{
   using SafeERC20 for IERC20;
 
   IERC721Enumerable private nft;
@@ -38,16 +39,16 @@ contract HeroMarketplace is IERC721Receiver, Ownable{
     token = _token;
   }
 
-  function onERC721Received(
-    address,
-    address,
-    uint256,
-    bytes calldata
-  )external override pure returns (bytes4){
-    return bytes4(
-      keccak256("onERC721Received(address, address, uint256, bytes)")
-    );
-  }
+  // function onERC721Received(
+  //   address,
+  //   address,
+  //   uint256,
+  //   bytes calldata
+  // )external override pure returns (bytes4){
+  //   return bytes4(
+  //     keccak256("onERC721Received(address, address, uint256, bytes)")
+  //   );
+  // }
 
   function setTax(uint256 _tax) public onlyOwner{
     tax = _tax;

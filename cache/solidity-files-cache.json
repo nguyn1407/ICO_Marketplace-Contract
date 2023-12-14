@@ -1197,8 +1197,8 @@
       ]
     },
     "/Users/nguyen/Documents/workshop/workshop_1_custom/contracts/HeroMarketplace.sol": {
-      "lastModificationDate": 1701279419479,
-      "contentHash": "efa6a88303c252db3ff17a8f9e0011ff",
+      "lastModificationDate": 1701877343177,
+      "contentHash": "b201caa3523eee9b02308fa17547c8d6",
       "sourceName": "contracts/HeroMarketplace.sol",
       "solcConfig": {
         "version": "0.8.19",
@@ -1224,7 +1224,7 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+        "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol",
         "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
         "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
@@ -1235,6 +1235,84 @@
       ],
       "artifacts": [
         "HeroMarketplace"
+      ]
+    },
+    "/Users/nguyen/Documents/workshop/workshop_1_custom/node_modules/@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol": {
+      "lastModificationDate": 1700845131956,
+      "contentHash": "6dc9f7bfd1fc143b9124493d089282a2",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../IERC721Receiver.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC721Holder"
+      ]
+    },
+    "/Users/nguyen/Documents/workshop/workshop_1_custom/contracts/Auction.sol": {
+      "lastModificationDate": 1702283441943,
+      "contentHash": "1c88bb8201c7f6d7599e132b7a63d741",
+      "sourceName": "contracts/Auction.sol",
+      "solcConfig": {
+        "version": "0.8.19",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/utils/ERC721Holder.sol",
+        "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/token/ERC721/IERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "Auction"
       ]
     }
   }
