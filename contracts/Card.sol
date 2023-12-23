@@ -8,19 +8,19 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/access/AccessControlEnumerable.sol";
 
-interface IHero {
-  function mint(address to, uint hero_type) external returns(uint256);
+interface ICard {
+  function mint(address to, uint card_type) external returns(uint256);
 }
 
-contract Hero is ERC721Enumerable, Ownable, AccessControlEnumerable, IHero{
+contract Card is ERC721Enumerable, Ownable, AccessControlEnumerable, IHero{
   using Counters for Counters.Counter;    
   Counters.Counter private _tokenIdTracker;
   string private _url;
   bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-  event Mint(address to, uint256 hero_type, uint256 token_id);
+  event Mint(address to, uint256 card_type, uint256 token_id);
 
-  constructor() ERC721("Stickman Hero", "Hero"){
+  constructor() ERC721("Sticky Card", "Card"){
     _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
   }
 
@@ -28,12 +28,12 @@ contract Hero is ERC721Enumerable, Ownable, AccessControlEnumerable, IHero{
     return _url;
   }
 
-  function mint(address to, uint256 hero_type) external override returns(uint256){
+  function mint(address to, uint256 card_type) external override returns(uint256){
     require(owner() == _msgSender() || hasRole(MINTER_ROLE, _msgSender()), "Caller is not minter");
     _tokenIdTracker.increment();
     uint256 token_id = _tokenIdTracker.current();
     _mint(to, token_id);
-    emit Mint(to, hero_type, token_id);
+    emit Mint(to, card_type, token_id);
     return token_id;
   }
 
