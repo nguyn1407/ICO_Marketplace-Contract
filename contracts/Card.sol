@@ -12,7 +12,7 @@ interface ICard {
   function mint(address to, uint card_type) external returns(uint256);
 }
 
-contract Card is ERC721Enumerable, Ownable, AccessControlEnumerable, IHero{
+contract Card is ERC721Enumerable, Ownable, AccessControlEnumerable, ICard{
   using Counters for Counters.Counter;    
   Counters.Counter private _tokenIdTracker;
   string private _url;

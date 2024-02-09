@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol";
 
-contract HeroMarketplace is ERC721Holder, Ownable{
+contract CardMarketplace is ERC721Holder, Ownable{
   using SafeERC20 for IERC20;
 
   IERC721Enumerable private nft;

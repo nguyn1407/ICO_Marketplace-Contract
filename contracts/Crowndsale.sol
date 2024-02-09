@@ -4,6 +4,7 @@ pragma solidity 0.8.19;
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "hardhat/console.sol";
 
 contract CrowdSale is Ownable{
     using SafeERC20 for IERC20;
@@ -52,7 +53,7 @@ contract CrowdSale is Ownable{
         uint256 amount = getTokenAmountBNB(bnbAmount);
 
         require(amount > 0, "Amount is Zero");
-        require(token.balanceOf(address(this)) >= amount, "Insufficent acount ballance");
+        require(token.balanceOf(address(this)) >= amount, "Insufficient contract ballance");
         require(msg.sender.balance >= amount, "Insufficient account balance");
 
         payable(_wallet).transfer(bnbAmount);
@@ -71,7 +72,7 @@ contract CrowdSale is Ownable{
         require(usdtToken.balanceOf(msg.sender) >= USDTAmount, "Insufficient account balance"); 
 
         require(amount > 0, "Amount is zero");
-        require(token.balanceOf(address(this)) >= amount, "Insufficient account balance");
+        require(token.balanceOf(address(this)) >= amount, "Insufficient contract balance");
 
         SafeERC20.safeTransferFrom(usdtToken, msg.sender, _wallet, USDTAmount);
         SafeERC20.safeTransfer(token, msg.sender, amount);

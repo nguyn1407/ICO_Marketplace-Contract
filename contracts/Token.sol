@@ -15,10 +15,11 @@ contract Token is
         _mint(msg.sender, cap);
         transferOwnership(msg.sender);
     }
+    
     function mint(address to, uint256 amount) public onlyOwner {
         require(
             ERC20.totalSupply() + amount <= cap,
-            "Floppy: cap exceeded"
+            "VND: cap exceeded"
         );
         _mint(to, amount);
     }
